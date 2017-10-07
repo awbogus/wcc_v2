@@ -1,6 +1,19 @@
 # The requests module is used to visit web pages from Python
 import requests
 
+# https://github.com/kootenpv/yagmail
+import yagmail
+
+def send_email(recipient, subject, body):
+
+    # Intialize yagmail
+    yag = yagmail.SMTP('wcc.python', 'montypython932');
+
+    # Send the email
+    yag.send(recipient, subject, body)
+
+# [...rest of your code is below here...]
+
 def load_site(url):
 
     # Send a request to the given URL; store the results in a variable called `response`
@@ -32,4 +45,10 @@ def search_for_vacations(destination, url):
     else:
         print('-> Not found ')
 
-search_for_vacations('Spain', 'https://www.travelzoo.com/top20')
+            # Send email
+        recipient = 'alexandra.bogus@gmail.com' # Update with your email address
+        subject = 'Vacation deal found for ' + destination + '!'
+        body = 'Quick! Check out ' + url + ' -- they just posted a deal for a trip to ' + destination + '.'
+        send_email(recipient, subject, body)
+
+search_for_vacations('NYC', 'https://www.travelzoo.com/top20')
