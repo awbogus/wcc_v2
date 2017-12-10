@@ -62,7 +62,6 @@ def temperatureConverterV2(temp, destination):
 
 def vowelCounter():
     word = raw_input("Pick a word.")
-    return word
     vowels = ['a', 'e', 'i', 'o', 'u']
     vowelCount = 0
     for letter in word:
@@ -70,7 +69,7 @@ def vowelCounter():
             vowelCount = vowelCount + 1;
         else:
             vowelCount = vowelCount
-    return vowelCount
+    print vowelCount
 
 vowelCounter()
 
